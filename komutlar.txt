@@ -1,0 +1,5 @@
+projeyi çalıştırma komutu:
+php artisan serve
+
+projeye controller ekleme komutu (BlogController örnek controller adıdır)
+php artisan make:controller BlogController
