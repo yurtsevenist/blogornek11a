@@ -3,3 +3,19 @@ php artisan serve
 
 projeye controller ekleme komutu (BlogController örnek controller adıdır)
 php artisan make:controller BlogController
+
+Blog yazısı modeli ve migration dosyası oluşturma komutu:
+php artisan make:model Post -m
+
+Migration dosyalarını veritabanında çalıştırma komutu:
+php artisan migrate
+
+Migration dosyalarını tekrar aktarmak için 
+php artisan migrate:fresh
+
+Blog için örnek Türkçe yazıları veritabanına ekleme komutu:
+php artisan migrate:fresh --seed
+
+Değişiklikleri GitHub'a commit edip gönderme komutu:
+python commit_push.py
+Script commit mesajını sorar; boş bırakırsanız tarih ve saat içeren varsayılan mesajı kullanır.
