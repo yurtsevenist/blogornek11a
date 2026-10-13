@@ -16,6 +16,11 @@ php artisan migrate:fresh
 Blog için örnek Türkçe yazıları veritabanına ekleme komutu:
 php artisan migrate:fresh --seed
 
+100 örnek kullanıcıyı rollerle oluşturma komutu:
+php artisan db:seed --class=UserSeeder
+Örnek yönetici e-postası: admin@example.test
+Örnek kullanıcıların başlangıç şifresi: password (yalnızca geliştirme ortamı için)
+
 Değişiklikleri script ile GitHub'a gönderme komutu (Windows):
 py commit_push.py
 Script commit mesajını sorar; boş bırakırsanız tarih ve saat içeren varsayılan mesajı kullanır.

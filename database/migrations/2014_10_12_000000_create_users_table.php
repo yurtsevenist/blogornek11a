@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            // Kullanıcı rolü: admin, editor, author veya user.
+            $table->string('role')->default('user')->index();
             $table->rememberToken();
             $table->timestamps();
         });
