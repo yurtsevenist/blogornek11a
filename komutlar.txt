@@ -16,6 +16,22 @@ php artisan migrate:fresh
 Blog için örnek Türkçe yazıları veritabanına ekleme komutu:
 php artisan migrate:fresh --seed
 
-Değişiklikleri GitHub'a commit edip gönderme komutu:
-python commit_push.py
+Değişiklikleri script ile GitHub'a gönderme komutu (Windows):
+py commit_push.py
 Script commit mesajını sorar; boş bırakırsanız tarih ve saat içeren varsayılan mesajı kullanır.
+
+Değişiklikleri elle GitHub'a gönderme komutları:
+git add -A
+git commit -m "Değişiklik açıklaması"
+git push origin main
+
+Yeni bir projeyi GitHub'da repo olarak açıp ilk kez göndermek:
+1. GitHub'da New repository seç. Repo adını yaz ve boş repo oluştur (README, .gitignore ve lisans ekleme).
+2. Terminalde yeni proje klasörüne gir ve aşağıdaki komutları sırayla çalıştır:
+git init
+git add -A
+git commit -m "İlk commit"
+git branch -M main
+git remote add origin https://github.com/KULLANICI_ADI/REPO_ADI.git
+git push -u origin main
+KULLANICI_ADI ve REPO_ADI bölümlerini kendi GitHub kullanıcı adın ve repo adınla değiştir.
