@@ -40,3 +40,8 @@ git branch -M main
 git remote add origin https://github.com/KULLANICI_ADI/REPO_ADI.git
 git push -u origin main
 KULLANICI_ADI ve REPO_ADI bölümlerini kendi GitHub kullanıcı adın ve repo adınla değiştir.
+
+
+[Gmail uygulama şifresi .env dosyasında tutulmalıdır; bu satır kaldırıldı.]
+
+E-posta servis ayarları .env dosyasında tutulur; gizli bilgileri Git'e eklemeyin.

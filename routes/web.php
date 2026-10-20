@@ -28,6 +28,12 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->n
 Route::view('/register', 'auth.register')->name('auth.register');
 Route::post('/register', [AuthController::class, 'register'])->middleware('throttle:5,1')->name('auth.register.submit');
 Route::view('/forgot-password', 'auth.forgot-password')->name('auth.forgot-password');
+Route::post('/forgot-password', [AuthController::class, 'sendPasswordResetCode'])
+    ->middleware('throttle:3,1')->name('auth.forgot-password.send');
+Route::get('/reset-password/{token}', [AuthController::class, 'showPasswordResetForm'])
+    ->name('auth.password.reset.form');
+Route::post('/reset-password', [AuthController::class, 'resetPassword'])
+    ->middleware('throttle:5,1')->name('auth.password.reset');
 
 //admin katmanı (middleware) ile korunan rotalar burada olacak.
 Route::get('/admin', function () {
