@@ -21,13 +21,17 @@ Route::get('/about', [BlogController::class, 'about'])->name('about');
 Route::get('/post', [BlogController::class, 'post'])->name('post');
 Route::get('/post/{id}', [BlogController::class, 'postDetail'])->name('post.detail');
 Route::get('/contact', [BlogController::class, 'contact'])->name('contact');
+
+Route::view('/login', 'auth.login')->name('auth.login');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login.submit');
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
+Route::view('/register', 'auth.register')->name('auth.register');
+Route::post('/register', [AuthController::class, 'register'])->middleware('throttle:5,1')->name('auth.register.submit');
+Route::view('/forgot-password', 'auth.forgot-password')->name('auth.forgot-password');
+
+//admin katmanı (middleware) ile korunan rotalar burada olacak.
 Route::get('/admin', function () {
     abort_unless(in_array(auth()->user()->role, ['admin', 'editor', 'author'], true), 403);
 
     return view('admin.dashboard');
 })->middleware('auth')->name('admin.dashboard');
-Route::view('/login', 'auth.login')->name('auth.login');
-Route::post('/login', [AuthController::class, 'login'])->name('auth.login.submit');
-Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
-Route::view('/register', 'auth.register')->name('auth.register');
-Route::view('/forgot-password', 'auth.forgot-password')->name('auth.forgot-password');

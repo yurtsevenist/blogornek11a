@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('password');
             // Kullanıcı rolü: admin, editor, author veya user.
             $table->string('role')->default('user')->index();
+            $table->ipAddress('last_login_ip')->nullable();
+            $table->text('last_login_device')->nullable();
+            $table->timestamp('last_login_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
